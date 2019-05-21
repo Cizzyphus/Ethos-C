@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../data.service';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { DOCUMENT } from '@angular/common';
+// import { games } from '../games/games.component';
 
 @Component({
   selector: 'app-game-create',
@@ -9,7 +10,7 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./gamecreate.component.css']
 })
 export class GameCreateComponent implements OnInit {
-  gamess: any;
+  games= [];
   createData: any;
   title: string;
   // @Output() refresh = new EventEmitter();
@@ -21,6 +22,23 @@ export class GameCreateComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  addGame = () => {
+    fetch('http://localhost:3005/games/addgame', {
+      method: "POST",
+      body: JSON.stringify(this.createData),
+        // {"name":"", "cover":"","platform":"","rating":1, "genre":"", "contentrating":"","description":""}),
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token")
+      })
+    })
+      .then(res => res.json())
+       .then(gameData => {
+        console.log(this.createData);
+  
+      });
+  };
 
   onCreate() {
     this.dbService.gamecreate(this.createData)
@@ -55,6 +73,21 @@ export class GameCreateComponent implements OnInit {
   //       err => console.log(err)
   //     )
   // }
+
+  updateGame(name){
+    // data.owner= Number(localStorage.getItem('id'))
+    console.log('game data:',name)
+    //return this.http.put(`https://coffeeredbadgeserver.herokuapp.com/comment/77`,data,httpOptions)
+    return fetch(`http://localhost:3005/games/editgame/${name}`,{
+      method: 'PUT',
+      body: JSON.stringify(this.createData),
+      headers: {
+        'Content-Type': 'application/json',
+        'authorization': localStorage.getItem('token')
+      }
+    }).then(res=>console.log(res))
+   }
+  
 
   onEdit(name: any) {
     this.dbService.gameedit(this.createData, name)

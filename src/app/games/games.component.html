@@ -7,10 +7,10 @@
     <td width="20%" colspan="3" class="align_center border_bottom padding_4"><input type="button" value="create" (click)=openCreate(0) /></td>
   </tr>
   <tr class="k-alt" *ngFor="let item of products" (refresh)="reloadData($event)">
-    <td width="30%" class="border_right">{{ game.name }}</td>
-    <td width="40%" class="border_right"><div class="float_left">{{ game.platform }}</div><div id="crud-action_{{game.id}}" class="float_left padding_left_30 text_red"></div></td>
-    <td width="5%" class="border_right align_center">{{ game.rating }}</td>
-    <td width="5%" class="border_right align_center">{{ game.genre }}</td> 
+    <td width="30%" class="border_right">{{ gameData.name }}</td>
+    <td width="40%" class="border_right"><div class="float_left">{{ gameData.game.platform }}</div><div id="crud-action_{{game.id}}" class="float_left padding_left_30 text_red"></div></td>
+    <td width="5%" class="border_right align_center">{{ gameData.game.rating }}</td>
+    <td width="5%" class="border_right align_center">{{ gameData.game.genre }}</td> 
     <td width="6%" class="align_center padding_2"><input type="button" value="edit" (click)=openCreate(game.name) /></td>
     <td width="6%" class="align_center padding_2"><input type="button" value="delete" (click)=openDelete(game.name) /></td>
   </tr>

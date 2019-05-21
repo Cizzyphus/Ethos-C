@@ -21,10 +21,12 @@ export class GamesComponent {
   // display: object = {};
   // baseUrl = 'http://localhost:3005';
   games= [];
+  gameData={};
   createData: any;
   modalRef: BsModalRef;
   title: string;
   showComments: any;
+  owner = Number(localStorage.getItem('uid'));
 
   
   
@@ -39,13 +41,30 @@ export class GamesComponent {
   //     console.log(this.games);
   // })
 }
-componentDidMount() {
-  this.fetchGames();
-}
+// componentDidMount() {
+//   this.fetchGames();
+// }
 
 updateGame = () => {
   fetch('http://localhost:3005/games/editgame', {
     method: "PUT",
+    headers: new Headers({
+      "Content-Type": "application/json",
+      Authorization: localStorage.getItem("token")
+    })
+  })
+    .then(res => res.json())
+    .then(gameData => {
+      this.games=gameData;
+      console.log(gameData)
+
+    });
+};
+
+addGame = () => {
+  fetch('http://localhost:3005/games/addgame', {
+    method: "POST",
+    body: JSON.stringify( this.data.gamecreate(this.createData)),
     headers: new Headers({
       "Content-Type": "application/json",
       Authorization: localStorage.getItem("token")
@@ -72,6 +91,7 @@ fetchGames = () => {
     .then(gameData => {
       this.games=gameData;
       console.log(gameData)
+      console.log(this.createData)
 
     });
 };
@@ -147,9 +167,9 @@ closeModal(){
 }
 
 
-openCreate(id: any) {
+openCreate(name: any) {
     
-  if (!id){
+  if (!name){
     this.title = 'Add Game'
     this.createData = {
       name: null,

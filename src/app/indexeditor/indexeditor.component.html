@@ -66,7 +66,7 @@
   <br>
   <div class="btns">
     <button *ngIf="!createData.id" type="button" (click)="onCreate()"> Submit </button>
-    <button  type="button" (click)="onEdit(createData.id)"> Update </button>
+    <button  type="button" (click)="onEdit(createData,createData.name)"> Update </button>
   </div>
 
 </form>

@@ -35,7 +35,7 @@ export class DataService {
     return this.http.post<any>( `${this.GamesUrl}/addgame`, game, httpOptions )
   }
   gameedit(game: any, name: string) : Observable<Games> {
-    return this.http.put<any>( `${this.GamesUrl}/${name}`, game, httpOptions )
+    return this.http.put<any>( `${this.GamesUrl}/editgame/${name}`, game, httpOptions )
   }
 
   deleteGame(name: any) : Observable<Games> {
@@ -68,11 +68,11 @@ signupUser(user: any) {
   .pipe(map(user => {
      if (user && user.sessionToken) {
         sessionStorage.setItem('token', user.sessionToken);
-        sessionStorage.setItem('uid', user.user.id);
+        sessionStorage.setItem('uid', user.id);
         sessionStorage.setItem('name', user.user.name);
         sessionStorage.setItem('img', user.user.image);
         localStorage.setItem('token', user.sessionToken);
-        localStorage.setItem('uid', user.user.id);
+        localStorage.setItem('uid', user.id);
         localStorage.setItem('name', user.user.name);
         localStorage.setItem('img', user.user.image);
        };
