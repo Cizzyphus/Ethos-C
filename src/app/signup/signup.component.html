@@ -1,0 +1,26 @@
+<div style = "text-align: center" class="auth">
+    <h1 class="sign"> Sign Up</h1>
+    <form>
+    
+        <label for="email" class="name"> Username </label> &nbsp;
+        <input
+        [(ngModel)]="loginUserData.username"
+        type="email"
+        name="email"
+        required>
+        <br><br>
+        <label for="password" class="pass"> Password </label> &nbsp;
+        <input
+        [(ngModel)]="loginUserData.password"
+        type="password"
+        name="password"
+        required>
+        <br>
+        <br>
+        &nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="loginb"
+        type="button" (click)="onSignUp()">
+        Create</button>
+        </form>
+    </div>

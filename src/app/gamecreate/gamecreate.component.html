@@ -1,0 +1,73 @@
+<div class="modal-header">
+  <h4 class="modal-title pull left"> Ethos Wizard </h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body">
+<form>
+
+  <label for="artist">Name</label>
+  <input class="full"
+  [(ngModel)]="createData.name"
+  type="text"
+  name="name"
+  required><br>
+
+  <label for="album">Cover</label>
+  <input class="full"
+  [(ngModel)]="createData.cover"
+  type="text"
+  name="cover"
+  required><br>
+
+  <label for="cover">Platform</label>
+  <input class="full"
+  [(ngModel)]="createData.platform"
+  type="text"
+  name="platform"
+  required><br>
+
+  <label for="cover"></label>
+  <img *ngIf="createData.id" [src]="createData.cover" /><br><br>
+
+  <label for="price">Rating</label>
+  <input class="smallest"
+  [(ngModel)]="createData.rating"
+  type="integer"
+  name="rating"
+  required><br>
+  
+  
+
+  <label for="genre">Genre:</label>
+  <input class="small"
+  [(ngModel)]="createData.genre"
+  type="text"
+  name="genre"
+  required><br>
+
+  <label for="genre">Content Rating</label>
+  <input class="small"
+  [(ngModel)]="createData.contentrating"
+  type="text"
+  name="contentrating"
+  required><br>
+
+  
+<div style="vertical-align: top; width: 20%; float: left;" for="desc">Description:</div>
+  <textarea
+  [(ngModel)]="createData.desc"
+  name="desc"
+  cols="43"
+  rows="8"
+  required>{{createData.desc}}</textarea><br>
+  <br>
+  <div class="btns">
+    <button *ngIf="!createData.id" type="button" (click)="onCreate()"> Submit </button>
+    <button  type="button" (click)="onEdit(createData.id)"> Update </button>
+  </div>
+
+</form>
+</div>

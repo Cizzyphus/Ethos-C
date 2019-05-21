@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
+
+body, html {
+    height: 100%;
+    margin: 0 auto;
+}
+
+html {
+    color:white;
+}
+body {
+    font-family: 'Didact Gothic';
+    font-size: 20px;
+    background-image: url(../src/assets/lozbg.jpg); background-size: cover;
+    
+}
+a {
+    text-decoration: none;
+}
+.navstuff {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1.3em;
+    display: grid;
+    grid-template-columns: 30% auto;
+}
+.navstuff a {
+    color: white;
+}
+section {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+

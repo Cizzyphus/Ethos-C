@@ -1,0 +1,22 @@
+<header>
+  <div class='navstuff'>
+<a routerLink = '/' class="logo">Ethos</a>
+    <nav>
+      <ul>
+  <li><mat-icon svgIcon="lozz" class="lozz"></mat-icon></li>
+  <!-- <div ; else elseBlock> -->
+    <div>
+  <li><a routerLink = '/home' *ngIf="_auth === true"> Home </a></li>
+  <li><a routerLink ='/games' *ngIf="_auth === true" > Index  </a></li>
+  <li><a routerLink ='/about' *ngIf="_auth === true"> About  </a></li>
+  <li><a routerLink = '/contact' *ngIf="_auth === true"> Contact  </a></li>
+  <li><a routerLink = '/auth' > Login </a></li>
+  <li><a routerLink ='/signup' >Sign Up</a></li>
+  <li><a routerLink = '/indexeditor'> Index Editor</a></li>
+ </div>
+  <mat-icon svgIcon="lozz" class="lozs"> </mat-icon>
+      </ul>
+      </nav>
+      </div>
+    </header>
+  

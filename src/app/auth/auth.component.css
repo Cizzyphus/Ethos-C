@@ -1,0 +1,28 @@
+.auth {
+   color: white;
+   opacity: 0.8;
+}
+
+.auth :hover {
+   opacity:1;
+}
+
+.button {
+   opacity:0.5;
+}
+
+.button :hover {
+   opacity: 1;
+}
+
+.loginb {
+   background-color:skyblue;
+   color: white;
+   opacity: 0.8;
+}
+
+.loginb :hover {
+   background-color: skyblue;
+   color: white;
+   opacity:1;
+}

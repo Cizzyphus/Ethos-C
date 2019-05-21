@@ -1,0 +1,171 @@
+<table width="70%" style="margin: 10px auto" collapse >
+  <tr>
+    <td width="30%" class="border_bottom">Game</td>
+    <td width="40%" class="border_bottom">Rating</td>
+    <td width="5%" class="border_bottom align_center">Platform</td>
+    <td width="5%" class="border_bottom border_right align_center">Content Rating</td>
+    <td width="20%" colspan="3" class="align_center border_bottom padding_4"><input type="button" value="create" (click)=openCreate(0) /></td>
+  </tr>
+  <tr class="k-alt" *ngFor="let item of products" (refresh)="reloadData($event)">
+    <td width="30%" class="border_right">{{ game.name }}</td>
+    <td width="40%" class="border_right"><div class="float_left">{{ game.platform }}</div><div id="crud-action_{{game.id}}" class="float_left padding_left_30 text_red"></div></td>
+    <td width="5%" class="border_right align_center">{{ game.rating }}</td>
+    <td width="5%" class="border_right align_center">{{ game.genre }}</td> 
+    <td width="6%" class="align_center padding_2"><input type="button" value="edit" (click)=openCreate(game.name) /></td>
+    <td width="6%" class="align_center padding_2"><input type="button" value="delete" (click)=openDelete(game.name) /></td>
+  </tr>
+</table>
+<h1>Browse our catalog</h1>
+<button type  ="button" (click)="fetchGames()">Fetch</button>
+<br><br>
+<div *ngIf="_auth === true">
+    <div *ngFor="let game of games " class="deck">
+        <div class="card">
+            <div class="cardContainer">
+                <h1><em>{{game.name}}</em></h1>
+                <img src="{{game.cover}}" class = 'cover'/>
+                <!-- <p>{{game.description}}</p> -->
+                <!-- <p>${{game.game_price}}</p> -->
+                <!-- <p><button type="button">Edit</button></p> -->
+                <p><button type="button" (click)="onDeleteGame(game.name)" *ngIf="_auth === true">Delete</button></p>
+
+            </div>
+        </div>
+    <!-- </div>  <Form onSubmit={this.handleSubmit} key="two" id="edit" align="center">
+          <FormGroup>
+            <Label for="name">Name of Game</Label>
+            <Input
+              id="name"
+              type="text"
+              name="name"
+              value={this.state.name}
+              placeholder="Enter the *exact* name of the game you would like to edit"
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup />
+          <FormGroup>
+            <Label for="rating">Rating</Label>
+            <Input
+              id="rating"
+              type="text"
+              name="rating"
+              value={this.state.rating}
+              placeholder="Enter rating (0-100)"
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="genre">Genre</Label>
+            <Input
+              type="select"
+              name="genre"
+              id="genre"
+              value={this.state.genre}
+              placeholder="Genre"
+              onChange={this.handleChange}
+            >
+              <option value="">/</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Action">Action</option>
+              <option value="Platformer">Platformer</option>
+              <option value="FPS">FPS</option>
+              <option value="TPS">TPS</option>
+              <option value="MMO">MMO</option>
+              <option value="MMORPG">MMORPG</option>
+              <option value="RPG">RPG</option>
+              <option valye="Fighter">Fighter</option>
+            </Input>
+          </FormGroup>
+          <FormGroup>
+            <Label for="contentrating">Content Rating</Label>
+            <Input
+              type="select"
+              name="contentrating"
+              id="contentrating"
+              value={this.state.contentrating}
+              onChange={this.handleChange}
+              placeholder="Content Rating"
+            >
+              <option value="">/</option>
+              <option value="E">E</option>
+              <option value="Y7+">Y7+</option>
+              <option value="T">T</option>
+              <option value="MA-17">MA-17</option>
+              <option value="A">A</option>
+              <option value="Unrated">Unrated</option>
+              </option>
+            </Input>
+          </FormGroup>
+          <FormGroup>
+            <Label for="runtime">Runtime</Label>
+            <Input
+              id="runtime"
+              type="text"
+              name="runtime"
+              value={this.state.runtime}
+              placeholder="Enter the length of the game (mins)."
+              onChange={this.handleChange}
+            />
+            <Label for="description">Description</Label>
+            <Input
+              id="description"
+              type="text"
+              name="description"
+              value={this.state.description}
+              placeholder="Enter a description of the game (255 char max)."
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup>
+
+          <Form onSubmit={this.addSubmit}>
+          <Button
+            
+            type="submit"
+            key="c"
+            color="primary"
+          >
+           Add
+          </Button>
+        </Form>
+          <Button
+          
+            key="a"
+            type="submit"
+            color="warning"
+          >
+            Edit
+          </Button>
+        </Form>
+        <Form onSubmit={this.handleDelete} align="center">
+          <Button key="b" type="submit" color="danger">
+            Delete
+          </Button>
+        </Form>
+      </FormGroup>
+</div> -->
+
+
+
+
+
+<!-- <div id="search-component">
+        <!-- <h4>Ethos</h4> -->
+      <!-- <div>
+        <select #dropdown>
+            <option value="games">Games</option> &nbsp;&nbsp;&nbsp;
+          </select>
+          <input #searchField (keyup)="onEnter(dropdown.value, searchField.value)">
+      </div>
+      
+      <div *ngIf="games.length !== 0; else noGame">
+          <div *ngFor="let game of games " class="deck">
+            <h1><em>{{ game.name }}</em></h1>
+           <img src = "{{ game.cover }}"/>
+            <!-- <li class ='games' *ngFor="let game of games"> {{ game.name }} </li> -->
+      <!-- </div>
+    </div> -->
+    <!-- <h1 *ngIf="_auth === false">Please login or sign up to continue.</h1> --> 
+      <router-outlet></router-outlet>
