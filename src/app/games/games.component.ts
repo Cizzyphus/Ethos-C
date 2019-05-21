@@ -36,6 +36,7 @@ export class GamesComponent {
 
   ngOnInit() {
       this._auth = localStorage.getItem('token') ? true : false;
+   
   //     ().subscribe(data => {
   //     this.games= data
   //     console.log(this.games);
@@ -186,7 +187,7 @@ openCreate(name: any) {
     this.title = 'Edit Product';
     this.data.getGame(name).subscribe(
     data => {
-            this.createData = data;
+            // this.createData = data;
             this.openModal();
           }
     )

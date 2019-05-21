@@ -27,7 +27,9 @@
                 <!-- <p>{{game.description}}</p> -->
                 <!-- <p>${{game.game_price}}</p> -->
                 <!-- <p><button type="button">Edit</button></p> -->
-                <p><button type="button" (click)="onDeleteGame(game.name)" *ngIf="_auth === true">Delete</button></p>
+                <div *ngIf="owner === game.owner || owner === 1">
+                <p><button type="button" (click)="onDeleteGame(game.name)">Delete</button></p>
+                </div>
 
             </div>
         </div>

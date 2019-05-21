@@ -13,6 +13,7 @@ export class GameCreateComponent implements OnInit {
   games= [];
   createData: any;
   title: string;
+  owner= Number(localStorage.getItem("uid"))
   // @Output() refresh = new EventEmitter();
 
   constructor(
@@ -41,6 +42,7 @@ export class GameCreateComponent implements OnInit {
   };
 
   onCreate() {
+    this.createData.owner=this.owner
     this.dbService.gamecreate(this.createData)
       .subscribe(
         res => {
