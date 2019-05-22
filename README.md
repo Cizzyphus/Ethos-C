@@ -1,5 +1,17 @@
 # Ethos
 
+
+# What is Ethos?
+
+Ethos is a website designed for sharing and viewing gaming content. More specifically, games.
+
+
+# Who is Ethos designed for?
+
+Ethos is designed for those who enjoy the aesthetic of having a visual library of games to browse through.
+(Especially now that gaming is moving to an almost entirely digitial era.)
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
 ## Development server

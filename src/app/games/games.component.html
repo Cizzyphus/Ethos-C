@@ -1,9 +1,9 @@
 <table width="70%" style="margin: 10px auto" collapse >
   <tr>
-    <td width="30%" class="border_bottom">Game</td>
-    <td width="40%" class="border_bottom">Rating</td>
-    <td width="5%" class="border_bottom align_center">Platform</td>
-    <td width="5%" class="border_bottom border_right align_center">Content Rating</td>
+    <!-- <td width="30%" class="border_bottom"></td>
+    <td width="40%" class="border_bottom"></td>
+    <td width="5%" class="border_bottom align_center"></td>
+    <td width="5%" class="border_bottom border_right align_center"></td> -->
     <td width="20%" colspan="3" class="align_center border_bottom padding_4"><input type="button" value="create" (click)=openCreate(0) /></td>
   </tr>
   <tr class="k-alt" *ngFor="let item of products" (refresh)="reloadData($event)">
@@ -12,7 +12,7 @@
     <td width="5%" class="border_right align_center">{{ gameData.game.rating }}</td>
     <td width="5%" class="border_right align_center">{{ gameData.game.genre }}</td> 
     <td width="6%" class="align_center padding_2"><input type="button" value="edit" (click)=openCreate(game.name) /></td>
-    <td width="6%" class="align_center padding_2"><input type="button" value="delete" (click)=openDelete(game.name) /></td>
+    <td width="6%" class="align_center padding_2"><input type="button" value="delete" (click)=openDelete(game.name) (click)=window.location.reload(); /></td>
   </tr>
 </table>
 <h1>Browse our catalog</h1>
@@ -27,7 +27,7 @@
                 <!-- <p>{{game.description}}</p> -->
                 <!-- <p>${{game.game_price}}</p> -->
                 <!-- <p><button type="button">Edit</button></p> -->
-                <div *ngIf="owner === game.owner || owner === 1">
+                <div *ngIf="game.owner === owner || owner === 1">
                 <p><button type="button" (click)="onDeleteGame(game.name)">Delete</button></p>
                 </div>
 

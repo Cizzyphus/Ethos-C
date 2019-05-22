@@ -140,6 +140,8 @@ onDeleteGame(name) {
     err => console.log(err)
   );
   this.getGames();
+  // location.href=location.href;
+  this.fetchGames();
 }
 
 openModal() {
@@ -204,6 +206,7 @@ this.data.getGame(id).subscribe(
           this.openDeleteModal(id)
         }
 )
+window.location.reload();
 }
 
 openDeleteModal(name: any) {
